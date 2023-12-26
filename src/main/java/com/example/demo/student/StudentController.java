@@ -31,4 +31,8 @@ public class StudentController {
         studentService.deleteStudent(studentId);
     }
 
+    @PutMapping(path = "{studentId}", params = {"name","email"})
+    public void updateStudent(@PathVariable Long studentId, @RequestParam String name, @RequestParam String email){
+        studentService.updateStudent(studentId, name, email);
+    }
 }
