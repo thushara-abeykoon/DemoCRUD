@@ -28,4 +28,13 @@ public class StudentService {
             throw new IllegalStateException("email is taken");
         studentRepository.save(student);
     }
+
+    public void deleteStudent(Long studentId) {
+        Optional<Student> studentOptional = studentRepository.findById(studentId);
+        if (studentOptional.isEmpty())
+            throw new IllegalStateException("student id: "+studentId+" isn't valid");
+        studentRepository.deleteById(studentId);
+    }
+
+
 }
