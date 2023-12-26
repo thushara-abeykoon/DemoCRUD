@@ -3,6 +3,7 @@ package com.example.demo.student;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Transient;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -65,7 +66,7 @@ public class Student {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob,LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
